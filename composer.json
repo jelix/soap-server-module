@@ -1,0 +1,28 @@
+{
+    "name": "jelix/soap-server-module",
+    "type": "jelix-module",
+    "description": "module to implement a SOAP server in a Jelix application",
+    "keywords": ["soap", "wsdl"],
+    "homepage": "http://jelix.org",
+    "license": "LGPL-2.1",
+    "authors": [
+        {
+            "name":"Sylvain de Vathaire"
+        },
+        {
+            "name": "Laurent Jouanneau",
+            "email": "laurent@jelix.org"
+        }
+    ],
+    "require": {
+        "jelix/webservice-helper": "1.5.2"
+    },
+    "minimum-stability": "stable",
+    "extra" : {
+        "jelix" : {
+            "modules": [
+                "jsoap"
+            ]
+        }
+    }
+}

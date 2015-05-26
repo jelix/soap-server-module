@@ -215,3 +215,7 @@ You can display a HTML version of the list of SOAP services, by calling the
   http://mysite.com/index.php/jsoap/WSDL?service=aModule~aController
 ```
 
+Unit tests
+==========
+
+Unit tests are in Testapp, in the jelix/jelix repository.

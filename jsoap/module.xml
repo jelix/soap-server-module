@@ -12,7 +12,7 @@
     </info>
     <autoload>
         <class name="jWSDL" file="classes/jWSDL.php" />
-        <class name="jSoapCoordinator" file="classes/jSoapCoordinator.php" />
-        <class name="jSoapRequest" file="classes/jSoapRequest.php" />
+        <class name="jSoapCoordinator" file="classes/jSoapCoordinator.class.php" />
+        <class name="jSoapRequest" file="classes/jSoapRequest.class.php" />
     </autoload>
 </module>

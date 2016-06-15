@@ -29,16 +29,10 @@ class jsoapModuleInstaller extends jInstallerModule {
             $this->copyFile('files/config.ini.php', jApp::configPath($entrypoint.'/config.ini.php'));
         }
         
-        if ($this->config->getValue('soap', 'responses') === null) {
-            $this->config->setValue('soap', "jsoap~jResponseSoap", "responses");
+        if ($this->entryPoint->getMainConfigIni()->getValue('soap', 'responses') === null) {
+            $this->entryPoint->getMainConfigIni()->setValue('soap', "jsoap~jResponseSoap", "responses");
         }
-        
-        if ($this->config->getValue($entrypoint, 'simple_urlengine_entrypoints') === null) {
-            $this->config->setValue($entrypoint, "@soap", "simple_urlengine_entrypoints");
-        }
-        
-        if ($this->config->getValue($entrypoint, 'basic_significant_urlengine_entrypoints') === null) {
-            $this->config->setValue($entrypoint, true, "basic_significant_urlengine_entrypoints");
-        }
+
+        $this->declareNewEntryPoint($entrypoint, 'soap', $entrypoint.'/config.ini.php');
     }
 }

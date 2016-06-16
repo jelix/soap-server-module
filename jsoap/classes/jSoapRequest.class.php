@@ -40,12 +40,7 @@ class jSoapRequest extends jRequest {
         $this->params['module'] = $module;
         $this->params['action'] = $action;
 
-        if(isset($HTTP_RAW_POST_DATA) && ($HTTP_RAW_POST_DATA!='')){
-            $this->soapMsg = $HTTP_RAW_POST_DATA;
-        }else{
-            $this->soapMsg = file("php://input");
-            $this->soapMsg = implode(" ", $this->soapMsg);
-        }
+        $this->soapMsg = file_get_contents("php://input");
 
         $this->_initUrlData(); //Need to be called manually before coordinator call of init because needed for the WSDL generation 
     }

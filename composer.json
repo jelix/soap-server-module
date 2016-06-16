@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "jelix/webservice-helper": "1.5.2"
+        "jelix/webservice-helper": "^1.5.3"
     },
     "minimum-stability": "stable",
     "extra" : {

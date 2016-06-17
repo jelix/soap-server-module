@@ -49,7 +49,10 @@ class jSoapRequest extends jRequest {
     /**
      * Overload of the init method to prevent calling twice _initUrlData
      */
-    function init(){}
+    function init(\Jelix\Routing\UrlMapping\UrlActionMapper $urlMapper)
+    {
+        $this->urlMapper = $urlMapper;
+    }
 
     protected function _initParams(){}
 

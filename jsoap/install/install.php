@@ -25,8 +25,8 @@ class jsoapModuleInstaller extends jInstallerModule {
         }
 
         // setup the configuration
-        if (!file_exists(jApp::configPath($entrypoint.'/config.ini.php'))) {
-            $this->copyFile('files/config.ini.php', jApp::configPath($entrypoint.'/config.ini.php'));
+        if (!file_exists(jApp::appConfigPath($entrypoint.'/config.ini.php'))) {
+            $this->copyFile('files/config.ini.php', jApp::appConfigPath($entrypoint.'/config.ini.php'));
         }
         
         if ($this->entryPoint->getMainConfigIni()->getValue('soap', 'responses') === null) {

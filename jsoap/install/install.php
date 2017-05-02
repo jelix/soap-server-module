@@ -4,15 +4,15 @@
 * @subpackage  jsoap module
 * @author      Laurent Jouanneau
 * @contributor
-* @copyright   2009-2015 Laurent Jouanneau
+* @copyright   2009-2017 Laurent Jouanneau
 * @link        http://www.jelix.org
 * @licence     GNU Lesser General Public Licence see LICENCE file or http://www.gnu.org/licenses/lgpl.html
 */
 
 
-class jsoapModuleInstaller extends jInstallerModule {
+class jsoapModuleInstaller extends jInstallerModule2 {
 
-    function install() {
+    function installEntrypoint(jInstallerEntryPoint2 $entryPoint) {
 
         // configure the entry point
         $entrypoint = $this->getParameter('entrypoint');
@@ -29,10 +29,10 @@ class jsoapModuleInstaller extends jInstallerModule {
             $this->copyFile('files/config.ini.php', jApp::appConfigPath($entrypoint.'/config.ini.php'));
         }
         
-        if ($this->entryPoint->getMainConfigIni()->getValue('soap', 'responses') === null) {
-            $this->entryPoint->getMainConfigIni()->setValue('soap', "jsoap~jResponseSoap", "responses");
+        if ($this->getConfigIni()->getValue('soap', 'responses') === null) {
+            $this->getConfigIni()->setValue('soap', "jsoap~jResponseSoap", "responses");
         }
 
-        $this->declareNewEntryPoint($entrypoint, 'soap', $entrypoint.'/config.ini.php');
+        $this->globalSetup->declareNewEntryPoint($entrypoint, 'soap', $entrypoint.'/config.ini.php');
     }
 }

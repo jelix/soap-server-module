@@ -5,14 +5,14 @@ It can also generates automatically WSDL content.
 It uses [the PHP SOAP API](http://www.php.net/manual/fr/book.soap.php)
 so you have to configure your web server to include this extension.
 
-This module is for Jelix 1.7.x and higher. See the jelix/jelix repository to see
-its history before Jelix 1.7.
+This module is for Jelix 2.0.x and higher. See the jelix/jelix repository to see
+its history before Jelix 2.0.
 
 Setting up the module
 =====================
 
 Install it by hands like any other Jelix modules, or use Composer if you installed
-Jelix 1.7+ with Composer.
+Jelix 2.0+ with Composer.
 
 In your project:
 

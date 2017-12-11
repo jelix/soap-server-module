@@ -10,9 +10,9 @@
 */
 
 
-class jsoapModuleInstaller extends jInstallerModule2 {
+class jsoapModuleInstaller extends \Jelix\Installer\ModuleInstaller{
 
-    function installEntrypoint(jInstallerEntryPoint2 $entryPoint) {
+    function installEntrypoint(\Jelix\Installer\EntryPoint $entryPoint) {
 
         // configure the entry point
         $entrypoint = $this->getParameter('entrypoint');

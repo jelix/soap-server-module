@@ -16,39 +16,23 @@ class jsoapModuleConfigurator extends \Jelix\Installer\Module\Configurator {
         );
     }
 
-    public function askParameters() {
-        $this->parameters['entrypoint'] = $this->askInformation('Enter the name of the entrypoint dedicated to your soap server', $this->parameters['entrypoint']);
-    }
+    public function configure(\Jelix\Installer\Module\API\ConfigurationHelpers $helpers) {
 
-    public function configure() {
+        $this->parameters['entrypoint'] = $helpers->cli()
+            ->askInformation('Enter the name of the entrypoint dedicated to your soap server',
+                $this->parameters['entrypoint']);
 
         $entrypoint = $this->getParameter('entrypoint');
         if (!$entrypoint) {
             $entrypoint = 'soap';
         }
 
-        if (substr($entrypoint, -4) == '.php') {
-            $epFile = $entrypoint;
-            $entrypoint = substr($entrypoint, 0, -4);
-        }
-        else {
-            $epFile = $entrypoint.'.php';
-        }
+        $helpers->createEntryPoint('files/soap.php', $entrypoint,
+                                    $entrypoint.'/config.ini.php',
+                                    'soap', 'files/config.ini.php');
 
-        if (!file_exists(jApp::wwwPath($epFile))) {
-            $this->copyFile('files/soap.php', jApp::wwwPath($epFile));
+        if ($helpers->getConfigIni()->getValue('soap', 'responses') === null) {
+            $helpers->getConfigIni()->setValue('soap', "jsoap~jResponseSoap", "responses");
         }
-
-        // setup the configuration
-        if (!file_exists(jApp::appConfigPath($entrypoint.'/config.ini.php'))) {
-            $this->copyFile('files/config.ini.php', jApp::appConfigPath($entrypoint.'/config.ini.php'));
-        }
-
-        if ($this->getConfigIni()->getValue('soap', 'responses') === null) {
-            $this->getConfigIni()->setValue('soap', "jsoap~jResponseSoap", "responses");
-        }
-
-        $this->globalSetup->declareNewEntryPoint($entrypoint, 'soap', $entrypoint.'/config.ini.php');
-
     }
 }

@@ -23,17 +23,16 @@ composer require "jelix/soap-server-module"
 Launch the configurator for your application to enable the module
 
 ```bash
-php yourapp/cmd.php module:configure jsoap
+php dev.php module:configure jsoap
 ```
 
-A new entrypoint is created and declared into your `project.xml` and
-`app/config/urls.xml`.
-
+A new entrypoint is created and declared into your `app/system/framework.ini.php` and
+`app/system/urls.xml`.
 
 Then launch the installer to activate the module
 
 ```bash
-php yourapp/install/installer.php
+php install/installer.php
 ```
 
 Using the module

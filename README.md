@@ -57,7 +57,7 @@ class defaultCtrl extends jController {
 
     /** 
      * Test with a simple parameter
-     * @param string $name
+     * @externalparam string $name
      * @return string
      */
     function hello() {
@@ -76,26 +76,27 @@ A "soap method" have parameters and should receive a value. You should indicate
 their type so Jelix could generate correctly soap and xsl messages.
 
 To do it, just add "doc comments" (like for phpdoc), and indicates the type of
-parameters and of the return value, by using some "@param" tags and a "@return"
-tag. Ex:
+parameters and of the return value, by using some `@externalparam` tags and a `@return`
+tag (we are using `@externalparam` instead of `@param` because these are not parameters
+of the PHP method). Ex:
 
 ```
-    @param string $myparameter
+    @externalparam string $myparameter
 ```
 
-Here it indicates that the soap parameter "$myparameter" is a string. Other
+Here it indicates that the soap parameter `$myparameter` is a string. Other
 possible types are "integer", "int", "boolean", "float".
 
 If you want to indicate an array, add the type name followed by ```[]```:
 
 ```
-    @param string[] $array_of_string
+    @externalparam string[] $array_of_string
 ```
 
 If it is an associative array, use ```[=>]```:
 
 ```
-    @param string[=>] $array_of_string
+    @externalparam string[=>] $array_of_string
 ```
 
 
@@ -110,7 +111,7 @@ Here an exemple of an object use for a parameter ```MyTestStruct```:
 /**
  * Struct used for tests
  */
-class MyTestStruct{
+class MyTestStruct {
     /**
      * @var string
      */
@@ -136,7 +137,7 @@ parameters or returned values:
 ```php
     /** 
      * for this method, we receive a MyTestStruct and return a MyTestStruct object
-     * @param MyTestStruct $input
+     * @externalparam MyTestStruct $input
      * @return MyTestStruct
      */
     function receiveObject() {

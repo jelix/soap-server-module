@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module xmlns="http://jelix.org/ns/module/1.0">
     <info id="jsoap@modules.jelix.org" name="jsoap" createdate="2008-04-13">
-        <version date="2019-08-23">1.7.9</version>
+        <version date="2022-06-29">1.7.10</version>
         <label lang="en_US">jsoap</label>
         <description lang="en_US">Provides soap features with WSDL generator for SOAP web services</description>
         <license URL="http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html">LGPL 2.1</license>

@@ -44,7 +44,7 @@ class jSoapCoordinator extends jCoordinator {
 
     /**
      * Init and return the soap server
-     * Use wsdl mode or not depending of the wsdl object param
+     * Use wsdl mode or not depending on the wsdl object param
      * @param jWsdl $wsdl
      * @return SoapServer
      */
@@ -81,7 +81,7 @@ class jSoapHandler {
     }
 
     /**
-     * Intercept the soapServer method call in order to handle the call thrue the process method oj the coordinator
+     * Intercept the soapServer method call in order to handle the call thrue the process method of the coordinator
      * @param string $soapOperationName Soap operation name (ie action name)
      * @param array $soapArgsSoap Params for the operation
      * @return mixed data, the soap server will transform it in a soap response
